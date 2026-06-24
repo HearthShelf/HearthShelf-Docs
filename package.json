@@ -12,6 +12,6 @@
     "vitepress": "^1.6.4"
   },
   "dependencies": {
-    "@clerk/vue": "^2.4.6"
+    "@clerk/vue": "^2.4.7"
   }
 }
