@@ -3,6 +3,7 @@ import { h } from 'vue'
 import { clerkPlugin } from '@clerk/vue'
 import NavAuth from './NavAuth.vue'
 import NavLogo from './NavLogo.vue'
+import HeroName from './HeroName.vue'
 import NotFound from './NotFound.vue'
 import './custom.css'
 
@@ -16,6 +17,7 @@ export default {
     return h(DefaultTheme.Layout, null, {
       'nav-bar-title-before': () => h(NavLogo),
       'nav-bar-content-after': () => h(NavAuth),
+      'home-hero-info-before': () => h(HeroName),
       'not-found': () => h(NotFound),
     })
   },

@@ -156,36 +156,49 @@ body {
   overflow: hidden;
 }
 
-/* Ember glow bloom behind the flame logo */
-.VPHero::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 71%;
-  transform: translate(-50%, -50%);
-  width: 560px;
-  height: 560px;
-  background: radial-gradient(circle at center,
-    rgba(224, 101, 74, 0.18) 0%,
-    rgba(201, 169, 110, 0.07) 40%,
-    transparent 70%
-  );
-  pointer-events: none;
-  z-index: 0;
-}
-
 .VPHero .container {
   position: relative;
   z-index: 1;
 }
 
+/* Ember glow bloom anchored to the flame logo so it tracks the image at
+   every resolution. Sized relative to the image container, not the hero. */
+.VPHero .image-container {
+  position: relative;
+}
+
+.VPHero .image-container::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 440px;
+  height: 440px;
+  background: radial-gradient(circle at center,
+    rgba(224, 101, 74, 0.20) 0%,
+    rgba(201, 169, 110, 0.08) 40%,
+    transparent 70%
+  );
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Two-tone wordmark matching the nav lockup (NavLogo.vue): "Hearth" regular
+   gold, "Shelf" bold cream. HeroName.vue splits the single name node into the
+   .hs-hearth / .hs-shelf spans these rules target. */
 .VPHero .name {
   font-family: 'Libre Baskerville', Georgia, serif !important;
+  background: none !important;
+  -webkit-text-fill-color: currentColor !important;
+}
+.VPHero .name .hs-hearth {
+  font-weight: 400;
+  color: #bd863f;
+}
+.VPHero .name .hs-shelf {
   font-weight: 700;
-  background: linear-gradient(90deg, var(--hs-gold) 0%, var(--hs-gold) 40%, var(--hs-cream) 100%) !important;
-  -webkit-background-clip: text !important;
-  -webkit-text-fill-color: transparent !important;
-  background-clip: text !important;
+  color: #f0e6d6;
 }
 
 .VPHero .tagline {
@@ -477,9 +490,6 @@ body {
 @media (max-width: 768px) {
   .VPHero .name {
     font-size: 2.5rem !important;
-  }
-  .VPHero::before {
-    left: 50%;
   }
   .vp-doc h1 {
     font-size: 1.75rem;
