@@ -18,15 +18,15 @@ The WebApp is an **arm's-length API client**. It talks to your HearthShelf serve
 
 ```mermaid
 flowchart TD
-    browser["You (browser)"]
-    webapp["app.hearthshelf.com"]
-    cp["Control plane<br/><span style='font-size:0.85em'>knows which servers you're linked to</span>"]
-    hs["Your HearthShelf server"]
-    abs["ABS<br/><span style='font-size:0.85em'>stays internal, never exposed</span>"]
+    browser["<b>You</b><br/><small>browser</small>"]
+    webapp["<b>app.hearthshelf.com</b>"]
+    cp["<b>Control plane</b><br/><small>knows which servers you're linked to</small>"]
+    hs["<b>Your HearthShelf server</b>"]
+    abs["<b>ABS</b><br/><small>stays internal, never exposed</small>"]
 
     browser -->|"sign in once"| webapp
     webapp -->|"broker trust"| cp
-    webapp -->|"connect directly to the server you picked"| hs
+    webapp -->|"connect directly to<br/>the server you picked"| hs
     hs --> abs
 
     class hs accent

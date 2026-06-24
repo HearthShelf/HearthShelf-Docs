@@ -156,18 +156,18 @@ body {
   overflow: hidden;
 }
 
-/* Ember glow bloom behind hero */
+/* Ember glow bloom behind the flame logo */
 .VPHero::before {
   content: '';
   position: absolute;
-  top: -20%;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 800px;
-  height: 600px;
-  background: radial-gradient(ellipse at center,
-    rgba(224, 101, 74, 0.12) 0%,
-    rgba(201, 169, 110, 0.05) 40%,
+  top: 50%;
+  left: 71%;
+  transform: translate(-50%, -50%);
+  width: 560px;
+  height: 560px;
+  background: radial-gradient(circle at center,
+    rgba(224, 101, 74, 0.18) 0%,
+    rgba(201, 169, 110, 0.07) 40%,
     transparent 70%
   );
   pointer-events: none;
@@ -182,7 +182,7 @@ body {
 .VPHero .name {
   font-family: 'Libre Baskerville', Georgia, serif !important;
   font-weight: 700;
-  background: linear-gradient(135deg, var(--hs-cream) 0%, var(--hs-gold) 60%, var(--hs-ember) 100%) !important;
+  background: linear-gradient(90deg, var(--hs-gold) 0%, var(--hs-gold) 40%, var(--hs-cream) 100%) !important;
   -webkit-background-clip: text !important;
   -webkit-text-fill-color: transparent !important;
   background-clip: text !important;
@@ -478,6 +478,9 @@ body {
   .VPHero .name {
     font-size: 2.5rem !important;
   }
+  .VPHero::before {
+    left: 50%;
+  }
   .vp-doc h1 {
     font-size: 1.75rem;
   }
@@ -487,4 +490,71 @@ body {
 ::selection {
   background: var(--hs-ember-dim);
   color: var(--hs-cream);
+}
+
+/* ── Mermaid diagrams ── */
+.vp-doc .mermaid {
+  margin: 1.5rem 0;
+  text-align: center;
+}
+
+/* Node label text — primary line */
+.mermaid .nodeLabel,
+.mermaid .edgeLabel .label,
+.mermaid .cluster-label {
+  font-family: 'DM Sans', sans-serif !important;
+  line-height: 1.5 !important;
+}
+
+.mermaid .nodeLabel p,
+.mermaid .edgeLabel p,
+.mermaid .cluster-label p {
+  margin: 0 !important;
+  line-height: 1.5 !important;
+}
+
+/* Secondary / supporting text inside a node — mermaid measures <small>
+   so the box grows to fit it instead of clipping. */
+.mermaid .nodeLabel small,
+.mermaid .cluster-label small {
+  display: block;
+  margin-top: 4px;
+  font-size: 0.8em;
+  font-weight: 400;
+  line-height: 1.45;
+  color: var(--hs-text-muted);
+}
+
+/* Strong primary line */
+.mermaid .nodeLabel strong,
+.mermaid .nodeLabel b,
+.mermaid .cluster-label strong {
+  font-weight: 600;
+  color: var(--hs-cream);
+}
+
+/* Edge labels: pill on the diagram background so lines don't show through */
+.mermaid .edgeLabel {
+  background: var(--hs-base) !important;
+}
+.mermaid .edgeLabel .label foreignObject,
+.mermaid .edgeLabel rect {
+  fill: var(--hs-base) !important;
+}
+.mermaid .edgeLabel .label span {
+  color: var(--hs-text-muted) !important;
+  background: var(--hs-base) !important;
+  font-size: 0.85em;
+  padding: 0 4px;
+}
+
+/* Cluster (subgraph) box */
+.mermaid .cluster rect {
+  rx: 8px;
+  ry: 8px;
+}
+.mermaid .cluster-label .nodeLabel,
+.mermaid .cluster-label {
+  color: var(--hs-text) !important;
+  font-weight: 600;
 }

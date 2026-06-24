@@ -17,10 +17,10 @@ The non-technical user story: you hand your family a login plus the ABSORB app. 
 
 ```mermaid
 flowchart TD
-    net["Internet / LAN"]
-    domain["books.mydomain.com<br/><span style='font-size:0.85em'>:443 or :80</span>"]
-    nginx["<b>HearthShelf nginx container</b><br/><span style='font-size:0.85em'>/abs-api/* &rarr; ABS (SPA's API calls)<br/>/abs-socket/* &rarr; ABS (SPA's socket)<br/>/api/* /socket.io/* etc &rarr; ABS (ABSORB)<br/>everything else &rarr; SPA (index.html)</span>"]
-    abs["ABS &nbsp; http://abs:13378<br/><span style='font-size:0.85em'>no published port &mdash; internal only</span>"]
+    net["<b>Internet / LAN</b>"]
+    domain["<b>books.mydomain.com</b><br/><small>:443 or :80</small>"]
+    nginx["<b>HearthShelf nginx container</b><br/><small>/abs-api/* &rarr; ABS (SPA's API calls)<br/>/abs-socket/* &rarr; ABS (SPA's socket)<br/>/api/* /socket.io/* etc &rarr; ABS (ABSORB)<br/>everything else &rarr; SPA (index.html)</small>"]
+    abs["<b>ABS</b> &nbsp; http://abs:13378<br/><small>no published port &mdash; internal only</small>"]
 
     net --> domain
     domain --> nginx

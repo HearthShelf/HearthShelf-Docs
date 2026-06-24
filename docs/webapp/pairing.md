@@ -15,10 +15,10 @@ Your ABS server never needs anything configured by hand — HearthShelf brokers 
 
 ```mermaid
 flowchart TD
-    setup["HearthShelf setup"]
+    setup["<b>HearthShelf setup</b>"]
     code["Shows a pairing code"]
     enter["Admin enters it once<br/>on app.hearthshelf.com"]
-    linked["Link recorded on both sides<br/>+ public key pinned to your server"]
+    linked["<b>Link recorded on both sides</b><br/><small>+ public key pinned to your server</small>"]
 
     setup --> code
     code --> enter
@@ -34,14 +34,14 @@ An admin invites someone by email; that person clicks, makes (or already has) an
 
 ```mermaid
 flowchart TD
-    invite["Admin invites alice@email.com"]
-    signup["Alice clicks &rarr; creates / signs in<br/>to her account (app.hearthshelf.com)"]
+    invite["<b>Admin invites alice@email.com</b>"]
+    signup["Alice clicks, creates / signs in<br/>to her account (app.hearthshelf.com)"]
 
     subgraph connect ["First connect to her library"]
         direction TB
         u1["Username pulled from her account,<br/>set on the ABS account"]
         u2["Matched into ABS by VERIFIED email"]
-        u3["She's in &mdash; no second auth screen"]
+        u3["<b>She's in</b> &mdash; no second auth screen"]
         u1 --> u2 --> u3
     end
 

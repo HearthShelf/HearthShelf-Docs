@@ -24,14 +24,14 @@ You sign into **Clerk** once for `app.hearthshelf.com`. The **control plane** kn
 
 ```mermaid
 flowchart TD
-    browser["You (browser)"]
-    clerk["Clerk<br/><span style='font-size:0.85em'>identity for app.hearthshelf.com</span>"]
-    cp["Control plane<br/><span style='font-size:0.85em'>links: identity &rarr; [ {server, grant} ... ]</span>"]
-    hs["Your HearthShelf server<br/><span style='font-size:0.85em'>hosted mode</span>"]
-    abs["ABS<br/><span style='font-size:0.85em'>internal only</span>"]
+    browser["<b>You</b><br/><small>browser</small>"]
+    clerk["<b>Clerk</b><br/><small>identity for app.hearthshelf.com</small>"]
+    cp["<b>Control plane</b><br/><small>links identity to servers + grants</small>"]
+    hs["<b>Your HearthShelf server</b><br/><small>hosted mode</small>"]
+    abs["<b>ABS</b><br/><small>internal only</small>"]
 
     browser -->|"sign in once"| clerk
-    browser -->|"which servers am I linked to?"| cp
+    browser -->|"which servers<br/>am I linked to?"| cp
     cp -->|"short-lived SIGNED assertion:<br/>user X, verified email,<br/>linked to server Y, exp 5m"| hs
     hs --> abs
 

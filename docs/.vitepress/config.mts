@@ -97,6 +97,14 @@ export default withMermaid(defineConfig({
 
   mermaid: {
     theme: 'base',
+    securityLevel: 'loose',
+    flowchart: {
+      htmlLabels: true,
+      padding: 12,
+      nodeSpacing: 50,
+      rankSpacing: 55,
+      useMaxWidth: true,
+    },
     themeVariables: {
       darkMode: true,
       fontFamily: 'Inter, sans-serif',

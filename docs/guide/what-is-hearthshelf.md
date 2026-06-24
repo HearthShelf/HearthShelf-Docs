@@ -33,9 +33,9 @@ HearthShelf does **not** replace AudiobookShelf itself. You need a running ABS i
 
 ```mermaid
 flowchart TD
-    browser["<b>Your Browser</b><br/>HearthShelf SPA &mdash; UI"]
-    nginx["<b>HearthShelf nginx Container</b><br/><span style='font-size:0.85em'>Serves the SPA, proxies ABS API,<br/>hosts QuestGiver (app state + DB)</span>"]
-    abs["<b>Your AudiobookShelf Server</b><br/><span style='font-size:0.85em'>REST API &middot; Socket.io &middot; Audio files</span>"]
+    browser["<b>Your Browser</b><br/><small>HearthShelf SPA &mdash; UI</small>"]
+    nginx["<b>HearthShelf nginx Container</b><br/><small>Serves the SPA, proxies ABS API,<br/>hosts QuestGiver (app state + DB)</small>"]
+    abs["<b>Your AudiobookShelf Server</b><br/><small>REST API &middot; Socket.io &middot; Audio files</small>"]
 
     browser -->|"/abs-api/* (library data)<br/>/api/qg/* (app state)"| nginx
     nginx -->|"internal network"| abs
