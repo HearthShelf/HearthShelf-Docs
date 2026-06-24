@@ -5,22 +5,60 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&family=DM+Mono:wght@400;500&display=swap');
 
-/* ── Design tokens ── */
+/* ── Design tokens ──
+   Semantic --hs-* tokens are defined twice: light under :root, dark under
+   .dark, mirroring the HearthShelf Design System (shadcn role tokens). The
+   rest of this stylesheet only references var(--hs-*), so the appearance
+   toggle flips everything automatically. "Dark is home; light is a daytime
+   option." */
+
+/* Light palette (daytime) */
 :root {
-  /* HearthShelf palette */
+  --hs-base:        #f0e6d6;
+  --hs-surface:     #f7eee0;
+  --hs-surface-2:   #fbf6ee;
+  --hs-border:      #dbceb8;
+  --hs-text:        #1b1a18;
+  --hs-text-muted:  #6f6557;
+  --hs-text-faint:  #948a78;
+  --hs-ember:       #c8553c;
+  --hs-ember-dim:   rgba(224, 101, 74, 0.16);
+  --hs-ember-glow:  rgba(224, 101, 74, 0.06);
+  --hs-gold:        #bd863f;
+  --hs-cream:       #1b1a18;
+  --hs-nav-bg:      rgba(240, 230, 214, 0.88);
+  --hs-code-block:  #fbf6ee;
+
+  /* brand wordmark — "Shelf" inks dark on the cream page */
+  --hs-wordmark-hearth: #bd863f;
+  --hs-wordmark-shelf:  #1b1a18;
+}
+
+/* Dark palette (home / product default) */
+.dark {
   --hs-base:        #1b1a18;
   --hs-surface:     #232220;
   --hs-surface-2:   #2c2b28;
   --hs-border:      #3a3835;
   --hs-text:        #e8e3d8;
   --hs-text-muted:  #9e9a91;
+  --hs-text-faint:  #6e6b64;
   --hs-ember:       #e0654a;
   --hs-ember-dim:   rgba(224, 101, 74, 0.18);
   --hs-ember-glow:  rgba(224, 101, 74, 0.08);
   --hs-gold:        #c9a96e;
   --hs-cream:       #e8e3d8;
+  --hs-nav-bg:      rgba(27, 26, 24, 0.88);
+  --hs-code-block:  #201f1d;
 
-  /* VitePress overrides — dark mode (always dark for HearthShelf) */
+  /* brand wordmark — "Shelf" is cream on the dark base */
+  --hs-wordmark-hearth: #bd863f;
+  --hs-wordmark-shelf:  #f0e6d6;
+}
+
+/* VitePress role overrides — shared, resolve through the --hs-* tokens above
+   so they track whichever palette is active. */
+:root {
   --vp-c-bg:               var(--hs-base);
   --vp-c-bg-soft:          var(--hs-surface);
   --vp-c-bg-mute:          var(--hs-surface-2);
@@ -28,7 +66,7 @@
   --vp-c-divider:          var(--hs-border);
   --vp-c-text-1:           var(--hs-text);
   --vp-c-text-2:           var(--hs-text-muted);
-  --vp-c-text-3:           #6e6b64;
+  --vp-c-text-3:           var(--hs-text-faint);
 
   --vp-c-brand-1:          var(--hs-ember);
   --vp-c-brand-2:          #c8553c;
@@ -36,25 +74,20 @@
   --vp-c-brand-soft:       var(--hs-ember-glow);
 
   /* Nav */
-  --vp-nav-bg-color:        rgba(27, 26, 24, 0.88);
+  --vp-nav-bg-color:        var(--hs-nav-bg);
 
   /* Sidebar */
   --vp-sidebar-bg-color:    var(--hs-surface);
 
   /* Code blocks */
   --vp-code-bg:             var(--hs-surface-2);
-  --vp-code-color:          #d4c9b4;
-  --vp-code-block-bg:       #201f1d;
+  --vp-code-color:          var(--hs-text);
+  --vp-code-block-bg:       var(--hs-code-block);
   --vp-code-tab-bg:         var(--hs-surface);
 
   /* Custom properties */
   --vp-font-family-base:    'DM Sans', sans-serif;
   --vp-font-family-mono:    'DM Mono', monospace;
-}
-
-/* ── Force dark mode always ── */
-html {
-  color-scheme: dark;
 }
 
 /* ── Typography ── */
@@ -194,11 +227,11 @@ body {
 }
 .VPHero .name .hs-hearth {
   font-weight: 400;
-  color: #bd863f;
+  color: var(--hs-wordmark-hearth);
 }
 .VPHero .name .hs-shelf {
   font-weight: 700;
-  color: #f0e6d6;
+  color: var(--hs-wordmark-shelf);
 }
 
 .VPHero .tagline {
@@ -293,7 +326,7 @@ body {
 
 /* ── Code blocks ── */
 .vp-doc div[class*='language-'] {
-  background: #1e1d1b !important;
+  background: var(--hs-code-block) !important;
   border: 1px solid var(--hs-border);
   border-radius: 8px;
 }
@@ -506,6 +539,41 @@ body {
 .vp-doc .mermaid {
   margin: 1.5rem 0;
   text-align: center;
+}
+
+/* Mermaid bakes its colors into the SVG from a single static config in
+   config.mts (tuned for dark). Re-drive the shape fills, borders, lines and
+   text from the --hs-* tokens so diagrams follow the appearance toggle too. */
+.mermaid .node rect,
+.mermaid .node polygon,
+.mermaid .node circle,
+.mermaid .node path,
+.mermaid .node ellipse {
+  fill: var(--hs-surface-2) !important;
+  stroke: var(--hs-border) !important;
+}
+
+.mermaid .cluster rect {
+  fill: var(--hs-surface) !important;
+  stroke: var(--hs-border) !important;
+}
+
+.mermaid .edgePath .path,
+.mermaid .flowchart-link,
+.mermaid line,
+.mermaid .relation {
+  stroke: var(--hs-text-muted) !important;
+}
+
+.mermaid .marker,
+.mermaid marker path {
+  fill: var(--hs-text-muted) !important;
+  stroke: var(--hs-text-muted) !important;
+}
+
+.mermaid .nodeLabel,
+.mermaid .nodeLabel p {
+  color: var(--hs-text) !important;
 }
 
 /* Node label text — primary line */
