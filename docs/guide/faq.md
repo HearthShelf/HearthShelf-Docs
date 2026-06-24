@@ -40,6 +40,14 @@ Any modern browser that supports ES2022+. Chrome, Firefox, Safari, and Edge are 
 
 Yes. HearthShelf supports multi-library setups. The sidebar lets you switch between your ABS libraries.
 
+## Can users see what other people are reading?
+
+There's a **server leaderboard** on the Stats page - it ranks listeners by books finished and hours listened, and book pages can show how many people have finished a title. Every signed-in listener can see it (not just admins).
+
+Each listener controls their own visibility with a **"Share my reading list"** toggle in Settings. The server admin sets the default for everyone under **Config > Community**: *on* (opt-out - listeners appear unless they hide) or *off* (opt-in - listeners are hidden unless they share). Changing the default applies to people who never picked for themselves, but never overrides someone who already chose. See [Configuration](/setup/configuration#community-leaderboard) to set this up.
+
 ## Where is HearthShelf's data stored?
 
 Your library, progress, and playback sessions all live in AudiobookShelf - HearthShelf never duplicates them. HearthShelf keeps only its own small state in an embedded SQLite database (app settings, AI recommendation config and history, and request/feedback data). In the browser, the only thing it persists is your auth token (in `localStorage`) so you stay logged in across sessions.
+
+For the community leaderboard, HearthShelf reads AudiobookShelf's own database **read-only** (it never writes to it) to count finished books across users - data ABS otherwise only gives to admins through its API. This is optional and off unless the database is made available to the container; see [Configuration](/setup/configuration#community-leaderboard).
