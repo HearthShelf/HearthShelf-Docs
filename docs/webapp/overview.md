@@ -16,15 +16,21 @@ A family member you invite signs in at `app.hearthshelf.com`, and their library 
 
 The WebApp is an **arm's-length API client**. It talks to your HearthShelf server only over that server's public HTTP and Socket interfaces — exactly the way any other client does. It never reaches into your server's internals.
 
-```
-   You (browser)
-        │  sign in once
-        ▼
-   app.hearthshelf.com  ──►  control plane (knows which servers you're linked to)
-        │
-        │  connect directly to the server you picked
-        ▼
-   Your HearthShelf server  ──►  ABS (stays internal, never exposed)
+```mermaid
+flowchart TD
+    browser["You (browser)"]
+    webapp["app.hearthshelf.com"]
+    cp["Control plane<br/><span style='font-size:0.85em'>knows which servers you're linked to</span>"]
+    hs["Your HearthShelf server"]
+    abs["ABS<br/><span style='font-size:0.85em'>stays internal, never exposed</span>"]
+
+    browser -->|"sign in once"| webapp
+    webapp -->|"broker trust"| cp
+    webapp -->|"connect directly to the server you picked"| hs
+    hs --> abs
+
+    class hs accent
+    classDef accent fill:#3a2a24,stroke:#e0654a,color:#e8e3d8;
 ```
 
 The control plane brokers *trust* — it tells your server "this is a verified user who's allowed here" — but it never carries your library traffic. Once you're connected, your browser talks **directly** to your HearthShelf server for everything: book data, audio streaming, live progress over Socket.io.

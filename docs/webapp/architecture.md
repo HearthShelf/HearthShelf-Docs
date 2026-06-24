@@ -22,23 +22,24 @@ The moment that codebase imported, vendored, linked against, or copied AGPL sour
 
 You sign into **Clerk** once for `app.hearthshelf.com`. The **control plane** knows which HearthShelf servers that identity is linked to. For each linked server, the client obtains a short-lived, signed **grant assertion** and talks to that server **directly**. The server verifies the assertion **offline** and resolves a per-user ABS credential. ABS scopes data to the matched per-user account. No second auth screen; no centrally stored ABS passwords.
 
+```mermaid
+flowchart TD
+    browser["You (browser)"]
+    clerk["Clerk<br/><span style='font-size:0.85em'>identity for app.hearthshelf.com</span>"]
+    cp["Control plane<br/><span style='font-size:0.85em'>links: identity &rarr; [ {server, grant} ... ]</span>"]
+    hs["Your HearthShelf server<br/><span style='font-size:0.85em'>hosted mode</span>"]
+    abs["ABS<br/><span style='font-size:0.85em'>internal only</span>"]
+
+    browser -->|"sign in once"| clerk
+    browser -->|"which servers am I linked to?"| cp
+    cp -->|"short-lived SIGNED assertion:<br/>user X, verified email,<br/>linked to server Y, exp 5m"| hs
+    hs --> abs
+
+    class hs accent
+    classDef accent fill:#3a2a24,stroke:#e0654a,color:#e8e3d8;
 ```
-                  sign in once
-   You (browser) ────────────────► Clerk  (identity for app.hearthshelf.com)
-        │
-        │ "which servers am I linked to?"
-        ▼
-   Control plane  ──  links: identity → [ {server, grant} … ]
-        │
-        │ short-lived SIGNED assertion:
-        │ "user X, verified email, linked to server Y, exp 5m"
-        ▼
-   Your HearthShelf server (hosted mode)
-        │  - verifies the assertion offline with a pinned public key
-        │  - resolves a per-user ABS credential
-        │  - ABS stays internal, never exposed
-        └── ABS (internal only)
-```
+
+The server then **verifies the assertion offline** with its pinned public key, **resolves a per-user ABS credential**, and keeps ABS unexposed behind it.
 
 ## Trust: verifying a request offline
 

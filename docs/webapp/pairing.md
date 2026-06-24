@@ -13,32 +13,43 @@ The admin enters that code once on `app.hearthshelf.com`. Pairing does two thing
 
 Your ABS server never needs anything configured by hand — HearthShelf brokers the whole thing.
 
-```
-HearthShelf setup  ──►  shows a pairing code
-                              │
-        admin enters it once on app.hearthshelf.com
-                              │
-                              ▼
-   link recorded on both sides + public key pinned to your server
+```mermaid
+flowchart TD
+    setup["HearthShelf setup"]
+    code["Shows a pairing code"]
+    enter["Admin enters it once<br/>on app.hearthshelf.com"]
+    linked["Link recorded on both sides<br/>+ public key pinned to your server"]
+
+    setup --> code
+    code --> enter
+    enter --> linked
+
+    class linked accent
+    classDef accent fill:#3a2a24,stroke:#e0654a,color:#e8e3d8;
 ```
 
 ## Inviting users (the Plex "invite by email" flow)
 
 An admin invites someone by email; that person clicks, makes (or already has) an account, and everything else just happens.
 
-```
-Admin invites alice@email.com
-        │
-        │  control plane sends the invite email
-        ▼
-Alice clicks → creates / signs in to her account (app.hearthshelf.com)
-        │
-        │  control plane pre-provisions her ABS user
-        ▼
-First connect to her library:
-   - username pulled from her account, set on the ABS account
-   - matched into ABS by VERIFIED email
-   - she's in — no second auth screen
+```mermaid
+flowchart TD
+    invite["Admin invites alice@email.com"]
+    signup["Alice clicks &rarr; creates / signs in<br/>to her account (app.hearthshelf.com)"]
+
+    subgraph connect ["First connect to her library"]
+        direction TB
+        u1["Username pulled from her account,<br/>set on the ABS account"]
+        u2["Matched into ABS by VERIFIED email"]
+        u3["She's in &mdash; no second auth screen"]
+        u1 --> u2 --> u3
+    end
+
+    invite -->|"control plane sends the invite email"| signup
+    signup -->|"control plane pre-provisions her ABS user"| connect
+
+    class u3 accent
+    classDef accent fill:#3a2a24,stroke:#e0654a,color:#e8e3d8;
 ```
 
 ABS has **no invite or pending-user concept** and sends no invitation emails, so the control plane owns invites and invite delivery. The ABS user is **pre-provisioned** (rather than relying on auto-register) so the username and password lifecycle are deliberate.
