@@ -22,6 +22,7 @@ export default defineConfig({
     siteTitle: false,
 
     nav: [
+      { text: 'HearthShelf.com', link: 'https://hearthshelf.com' },
       { text: 'Guide', link: '/guide/what-is-hearthshelf' },
       { text: 'Setup', link: '/setup/docker' },
       { text: 'WebApp', link: '/webapp/overview' },

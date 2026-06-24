@@ -11,8 +11,7 @@ const APP_URL = 'https://app.hearthshelf.com'
   <ClerkLoaded>
     <div class="auth-nav">
       <Show when="signed-out">
-        <a class="auth-link" :href="`${APP_URL}/sign-in`">Log in</a>
-        <a class="auth-cta" :href="`${APP_URL}/sign-up`">Sign up</a>
+        <a class="auth-cta" :href="APP_URL">My HearthShelf</a>
       </Show>
       <Show when="signed-in">
         <a class="auth-cta" :href="APP_URL">Open HearthShelf</a>
@@ -28,15 +27,6 @@ const APP_URL = 'https://app.hearthshelf.com'
   align-items: center;
   gap: 12px;
   margin-left: 4px;
-}
-.auth-link {
-  font-size: 14px;
-  font-weight: 500;
-  color: var(--vp-c-text-1);
-  white-space: nowrap;
-}
-.auth-link:hover {
-  color: var(--vp-c-brand-1);
 }
 .auth-cta {
   font-size: 14px;
