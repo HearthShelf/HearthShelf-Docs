@@ -15,24 +15,19 @@ The non-technical user story: you hand your family a login plus the ABSORB app. 
 
 ## Network Model
 
-```
-                        Internet / LAN
-                              │
-              books.mydomain.com  (:443 or :80)
-                              │
-                              ▼
-      ┌─────────────────────────────────────────┐
-      │      HearthShelf nginx container         │
-      │                                          │
-      │  /abs-api/* → ABS (SPA's API calls)      │
-      │  /abs-socket/* → ABS (SPA's socket)      │
-      │  /api/* /socket.io/* etc → ABS (ABSORB)  │
-      │  everything else → SPA (index.html)      │
-      └─────────────────┬───────────────────────┘
-                        │  internal Docker network
-                        ▼
-             ABS  http://abs:13378
-             (no published port — internal only)
+```mermaid
+flowchart TD
+    net["Internet / LAN"]
+    domain["books.mydomain.com<br/><span style='font-size:0.85em'>:443 or :80</span>"]
+    nginx["<b>HearthShelf nginx container</b><br/><span style='font-size:0.85em'>/abs-api/* &rarr; ABS (SPA's API calls)<br/>/abs-socket/* &rarr; ABS (SPA's socket)<br/>/api/* /socket.io/* etc &rarr; ABS (ABSORB)<br/>everything else &rarr; SPA (index.html)</span>"]
+    abs["ABS &nbsp; http://abs:13378<br/><span style='font-size:0.85em'>no published port &mdash; internal only</span>"]
+
+    net --> domain
+    domain --> nginx
+    nginx -->|"internal Docker network"| abs
+
+    class nginx accent
+    classDef accent fill:#3a2a24,stroke:#e0654a,color:#e8e3d8;
 ```
 
 ## Path Routing Table

@@ -31,26 +31,17 @@ HearthShelf does **not** replace AudiobookShelf itself. You need a running ABS i
 
 ## The relationship
 
-```
-┌──────────────────────────────────────┐
-│           Your Browser               │
-│                                      │
-│   HearthShelf SPA  ←  UI             │
-└──────────────┬───────────────────────┘
-               │ /abs-api/*  (library data)
-               │ /api/qg/*   (app state)
-               ▼
-┌──────────────────────────────────────┐
-│      HearthShelf nginx Container     │
-│  Serves the SPA, proxies ABS API,    │
-│  hosts QuestGiver (app state + DB)   │
-└──────────────┬───────────────────────┘
-               │ internal network
-               ▼
-┌──────────────────────────────────────┐
-│      Your AudiobookShelf Server      │
-│  REST API · Socket.io · Audio files  │
-└──────────────────────────────────────┘
+```mermaid
+flowchart TD
+    browser["<b>Your Browser</b><br/>HearthShelf SPA &mdash; UI"]
+    nginx["<b>HearthShelf nginx Container</b><br/><span style='font-size:0.85em'>Serves the SPA, proxies ABS API,<br/>hosts QuestGiver (app state + DB)</span>"]
+    abs["<b>Your AudiobookShelf Server</b><br/><span style='font-size:0.85em'>REST API &middot; Socket.io &middot; Audio files</span>"]
+
+    browser -->|"/abs-api/* (library data)<br/>/api/qg/* (app state)"| nginx
+    nginx -->|"internal network"| abs
+
+    class nginx accent
+    classDef accent fill:#3a2a24,stroke:#e0654a,color:#e8e3d8;
 ```
 
 ## Design direction
