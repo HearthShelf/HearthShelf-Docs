@@ -1,0 +1,17 @@
+{
+  "name": "hearthshelf-docs",
+  "version": "1.0.0",
+  "description": "HearthShelf documentation site",
+  "type": "module",
+  "scripts": {
+    "dev": "vitepress dev docs",
+    "build": "vitepress build docs",
+    "preview": "vitepress preview docs"
+  },
+  "devDependencies": {
+    "vitepress": "^1.6.4"
+  },
+  "dependencies": {
+    "@clerk/vue": "^2.4.6"
+  }
+}
