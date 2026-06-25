@@ -12,13 +12,17 @@ HearthShelf is a **replacement UI for [AudiobookShelf](https://www.audiobookshel
 
 ## What it is
 
-HearthShelf is **only the face**. Your ABS server stays exactly where it is and keeps doing everything it already does — managing your files, transcoding audio, tracking progress. HearthShelf replaces the web UI that ABS ships with a redesigned, browser-first experience.
+HearthShelf is **only the look**. Your AudiobookShelf server stays exactly where
+it is and keeps doing everything it already does — holding your files, preparing
+audio, and remembering where you left off. HearthShelf swaps the built-in
+AudiobookShelf web page for a nicer, easier-to-use one.
 
-All of your **library** data comes from ABS via its REST API. HearthShelf has:
+Everything you see — your books, covers, and progress — comes from your
+AudiobookShelf server. HearthShelf itself has:
 
 - No file management
-- No transcoding
-- No copy of your library, progress, or sessions - those always live in ABS
+- No audio processing
+- No copy of your library, progress, or listening history — those always live in AudiobookShelf
 
 HearthShelf does keep a small backend of its own (QuestGiver) with an embedded
 SQLite database for HearthShelf-specific state only - app settings, AI
@@ -27,7 +31,9 @@ duplicates your ABS library.
 
 ## What it is not
 
-HearthShelf does **not** replace AudiobookShelf itself. You need a running ABS instance to use HearthShelf. Think of it as a theme — but one that runs as its own container.
+HearthShelf does **not** replace AudiobookShelf. You still need AudiobookShelf
+running to use it. Think of HearthShelf like a new skin or theme for your
+audiobook server.
 
 ## The relationship
 

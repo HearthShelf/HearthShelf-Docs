@@ -14,7 +14,7 @@ Get HearthShelf running in under five minutes with Docker Compose. Pick the path
 
 ## All-in-One Quick Start
 
-The most frictionless way to start. Create a `docker-compose.yml`:
+The simplest way to start. Create a `docker-compose.yml`:
 
 ```yaml
 services:
@@ -71,7 +71,8 @@ On the slim image HearthShelf does **not** replace your ABS server — it only r
 |---|---|---|
 | `ABS_SERVER_URL` | Yes | Internal URL of your AudiobookShelf server (e.g. `http://192.168.1.100:13378`) |
 | `PORT` | No | Port HearthShelf listens on (default: `80`) |
-| `PUBLIC_URL` | Recommended | Your public hostname — used for OIDC redirect rewriting (e.g. `https://books.mydomain.com`) |
+| `PUBLIC_URL` | Recommended | Your public hostname — used for OIDC redirect rewriting (e.g. `https://books.mydomain.com`). Set automatically when `HSDIRECT_ENABLED=true`. |
+| `HSDIRECT_ENABLED` | No | Set to `true` to get a free, automatic `https://` address for app.hearthshelf.com — no domain needed. See [Remote Access](/setup/remote-access). |
 
 ## Accessing HearthShelf
 
@@ -84,6 +85,7 @@ Log in with the same username and password you use for AudiobookShelf. HearthShe
 - [All-in-One image guide](/setup/all-in-one) — the single-container setup in detail
 - [Migrate to All-in-One](/setup/migrate-to-aio) — consolidate an existing slim + ABS setup
 - [Docker configuration details](/setup/docker)
-- [Setting up a reverse proxy](/setup/reverse-proxy) — for public HTTPS access
+- [Remote Access](/setup/remote-access) — use your library from anywhere (hs.direct: no domain needed)
+- [Setting up a reverse proxy](/setup/reverse-proxy) — public HTTPS with your own domain
 - [Authentication options](/setup/authentication) — username/password and OpenID Connect
 - [Configuration reference](/setup/configuration) — all environment variables

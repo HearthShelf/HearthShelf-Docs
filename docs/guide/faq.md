@@ -20,6 +20,13 @@ Yes. HearthShelf syncs playback progress with your ABS server every 30 seconds w
 
 Yes. HearthShelf authenticates against ABS, so every ABS user account works. Each user logs in with their own ABS credentials.
 
+## Do I need to buy a domain to use it from outside my house?
+
+No. Turn on **hs.direct** (`HSDIRECT_ENABLED=true`) and HearthShelf gives your
+server a free, secure `https://` web address automatically — no domain to buy and
+nothing to keep updated. See [Remote Access](/setup/remote-access). You can still
+use your own domain if you'd rather.
+
 ## Does HearthShelf support OpenID Connect?
 
 Yes. The OpenID button appears on the login page when your ABS server has OpenID configured. HearthShelf implements the full OAuth2 PKCE flow.

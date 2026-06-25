@@ -2,6 +2,13 @@
 
 There are two flows that get people into the hosted WebApp: an admin **links a server** once, then **invites users** by email. Both are designed to be one-step and to leave no stored secrets behind.
 
+::: tip Before you link: your server needs a public web address
+Linking only works once your server is reachable at an `https://` address. The
+easiest way is **hs.direct** (one setting, no domain needed) — see
+[Remote Access](/setup/remote-access). If the reachability check on
+**Config → HearthShelf Connect** is green, you're ready to link.
+:::
+
 ## Linking a server (admin, once per server)
 
 During HearthShelf install or setup, the admin opts into `app.hearthshelf.com`. HearthShelf surfaces a short **pairing code** — the same idea as pairing a streaming device, where the device shows a code and you enter it on the website.

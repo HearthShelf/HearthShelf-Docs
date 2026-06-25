@@ -2,6 +2,13 @@
 
 The transparent reverse-proxy model lets HearthShelf be the **only host** any end user touches — browser or native mobile app.
 
+::: tip Just want public access, not a custom domain?
+If you only need your server reachable from app.hearthshelf.com and don't care
+about using your own domain, **hs.direct** does it with one setting and no proxy —
+see [Remote Access](/setup/remote-access). This page is for running your **own
+domain** through a transparent proxy (so ABSORB and the browser share one host).
+:::
+
 ## Goal
 
 End users interact exclusively with a single address (e.g. `books.mydomain.com`). Two different clients use it:
