@@ -56,7 +56,7 @@ When the wizard loads it:
 
 - **Reveals your generated admin credentials once.** Save them, then change the password in Settings.
 - Signs you in automatically.
-- **Defaults to connecting to app.hearthshelf.com** — the easiest way to reach your library from anywhere and invite people by email. You can opt out and stay fully local; you can also change this later.
+- **Defaults to connecting to app.hearthshelf.com** — the easiest way to reach your library from anywhere and invite people by email. You can opt out and stay fully local; you can also change this later. To use it, your server needs a public HTTPS address — see [Remote Access](/setup/remote-access). The wizard checks reachability and links to this guide if your address won't work yet.
 
 ::: warning Save your admin credentials
 The generated root password is shown **once** and then cleared from storage. Write it down (or change it immediately in Settings) before leaving the wizard.

@@ -53,6 +53,7 @@ export default withMermaid(defineConfig({
             { text: 'Migrate to All-in-One', link: '/setup/migrate-to-aio' },
             { text: 'Configuration', link: '/setup/configuration' },
             { text: 'Reverse Proxy', link: '/setup/reverse-proxy' },
+            { text: 'Remote Access', link: '/setup/remote-access' },
             { text: 'Authentication', link: '/setup/authentication' },
           ],
         },
