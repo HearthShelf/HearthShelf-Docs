@@ -77,8 +77,8 @@ Back up `/config` and `/app/data` the same way you'd back up any ABS install. St
 
 | Variable | Required | Default | Description |
 |---|---|---|---|
-| `PUBLIC_URL` | Recommended | — | Your public hostname — used for OIDC redirect rewriting and as the address app.hearthshelf.com reaches. Set automatically when `HSDIRECT_ENABLED=true`. |
-| `HSDIRECT_ENABLED` | No | `false` | Get a free, automatic `https://` address for app.hearthshelf.com — no domain needed. See [Remote Access](/setup/remote-access). |
+| `PUBLIC_URL` | Recommended | — | Your public hostname — used for OIDC redirect rewriting and as the address app.hearthshelf.com reaches. hs.direct sets this for you automatically after pairing (unless you set your own). |
+| `HSDIRECT_DISABLED` | No | `false` | hs.direct gives your server a free `https://` address **automatically once you pair** with app.hearthshelf.com — no setup needed. Set this to `true` only if you want to turn that off. See [Remote Access](/setup/remote-access). |
 | `QG_PROVIDER` | No | — | AI provider for QuestGiver recommendations (leave empty to use the heuristic engine) |
 | `QG_API_KEY` | No | — | API key for the AI provider (stays in-container, never sent to the browser) |
 | `QG_MODEL` | No | — | Model id for the AI provider |

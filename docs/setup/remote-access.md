@@ -16,17 +16,16 @@ HearthShelf on your home Wi-Fi, leave this alone — it just works.
 
 ## The easy way: hs.direct (no domain needed)
 
-Turn on one setting and HearthShelf gives your server its own secure web address
-automatically. Add this to your container settings:
+On the All-in-One image, this is **automatic** — there's nothing to turn on. When
+you pair your server with app.hearthshelf.com, HearthShelf gives it its own secure
+`https://` web address and keeps the certificate valid for you. The reachability
+check on **Config → HearthShelf Connect** turns green on its own.
 
-```yaml
-environment:
-  - HSDIRECT_ENABLED=true
-```
-
-Restart the container. That's it — your server now has a working `https://`
-address, and the reachability check on **Config → HearthShelf Connect** should
-turn green. Pairing with app.hearthshelf.com will work.
+::: tip Want to turn it off?
+hs.direct stays on as a reliable, monitored connection even if you also set up your
+own domain (below). If you really don't want it, set `HSDIRECT_DISABLED=true` in
+your container settings.
+:::
 
 ::: tip What you get
 A web address like `https://...hearthshelf.app` that points at your server and

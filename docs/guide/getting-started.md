@@ -71,8 +71,8 @@ On the slim image HearthShelf does **not** replace your ABS server — it only r
 |---|---|---|
 | `ABS_SERVER_URL` | Yes | Internal URL of your AudiobookShelf server (e.g. `http://192.168.1.100:13378`) |
 | `PORT` | No | Port HearthShelf listens on (default: `80`) |
-| `PUBLIC_URL` | Recommended | Your public hostname — used for OIDC redirect rewriting (e.g. `https://books.mydomain.com`). Set automatically when `HSDIRECT_ENABLED=true`. |
-| `HSDIRECT_ENABLED` | No | Set to `true` to get a free, automatic `https://` address for app.hearthshelf.com — no domain needed. See [Remote Access](/setup/remote-access). |
+| `PUBLIC_URL` | Recommended | Your public hostname — used for OIDC redirect rewriting (e.g. `https://books.mydomain.com`). On the All-in-One image, hs.direct sets this for you automatically after pairing. |
+| `HSDIRECT_DISABLED` | No | hs.direct gives the All-in-One image a free `https://` address automatically after pairing. Set `true` only to turn it off. See [Remote Access](/setup/remote-access). |
 
 ## Accessing HearthShelf
 
