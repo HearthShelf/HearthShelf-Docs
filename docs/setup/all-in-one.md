@@ -5,7 +5,7 @@ HearthShelf ships in two flavors:
 | Image | Tag | Use it when |
 |---|---|---|
 | **Slim** | `ghcr.io/hearthshelf/hearthshelf:latest` | You already run AudiobookShelf and want HearthShelf as its face. |
-| **All-in-One** | `ghcr.io/hearthshelf/hearthshelf:latest-aio` | You want one container that *is* the whole stack — HearthShelf with AudiobookShelf bundled inside. |
+| **All-in-One** | `ghcr.io/hearthshelf/hearthshelf-aio:latest` | You want one container that *is* the whole stack — HearthShelf with AudiobookShelf bundled inside. |
 
 The **all-in-one** (AIO) image is the most frictionless way to start. It contains the official AudiobookShelf server alongside HearthShelf. HearthShelf sets ABS up for you on first boot and owns the entire onboarding flow, so you never touch ABS's own setup screens.
 
@@ -20,11 +20,11 @@ Create a `docker-compose.yml`:
 ```yaml
 services:
   hearthshelf:
-    image: ghcr.io/hearthshelf/hearthshelf:latest-aio
+    image: ghcr.io/hearthshelf/hearthshelf-aio:latest
     ports:
-      - "3000:80"
+      - "9277:80"
     environment:
-      - PUBLIC_URL=http://localhost:3000
+      - PUBLIC_URL=http://localhost:9277
     volumes:
       # Your audiobooks
       - ./audiobooks:/audiobooks
@@ -40,7 +40,7 @@ services:
 docker compose up -d
 ```
 
-Open `http://localhost:3000`. On the very first launch HearthShelf provisions the bundled ABS in the background; within a few seconds the **setup wizard** appears.
+Open `http://localhost:9277`. On the very first launch HearthShelf provisions the bundled ABS in the background; within a few seconds the **setup wizard** appears.
 
 ## What Happens on First Boot
 

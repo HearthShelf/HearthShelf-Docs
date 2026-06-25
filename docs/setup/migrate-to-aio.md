@@ -32,7 +32,7 @@ Before (two containers):
 services:
   hearthshelf:
     image: ghcr.io/hearthshelf/hearthshelf:latest
-    ports: ["3000:80"]
+    ports: ["9277:80"]
     environment:
       - ABS_SERVER_URL=http://abs:13378
       - PUBLIC_URL=https://books.mydomain.com
@@ -55,8 +55,8 @@ After (one container — point it at the **same** `./config`, `./metadata`, `./a
 ```yaml
 services:
   hearthshelf:
-    image: ghcr.io/hearthshelf/hearthshelf:latest-aio
-    ports: ["3000:80"]
+    image: ghcr.io/hearthshelf/hearthshelf-aio:latest
+    ports: ["9277:80"]
     environment:
       - PUBLIC_URL=https://books.mydomain.com
     volumes:
@@ -86,7 +86,7 @@ In the logs you should see HearthShelf detect the existing ABS and **skip provis
 [aio-provision] ABS already initialised; marking provisioned without new credentials
 ```
 
-That line confirms your existing database was found. Open `http://localhost:3000` (or your public URL) and **sign in with your existing AudiobookShelf account** — all your libraries, users, and progress are intact.
+That line confirms your existing database was found. Open `http://localhost:9277` (or your public URL) and **sign in with your existing AudiobookShelf account** — all your libraries, users, and progress are intact.
 
 Because ABS is already set up, the first-run wizard does **not** generate new credentials. You will not be prompted to connect to app.hearthshelf.com automatically; you can still do that any time from **Settings → Connect**.
 

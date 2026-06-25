@@ -2,8 +2,8 @@
 
 HearthShelf ships two images:
 
-- **Slim** (`:latest`) — HearthShelf only. You point it at an AudiobookShelf server you already run. This page covers the slim image.
-- **All-in-One** (`:latest-aio`) — HearthShelf *with AudiobookShelf bundled inside*, one container, set up for you. See [All-in-One](/setup/all-in-one).
+- **Slim** (`hearthshelf:latest`) — HearthShelf only. You point it at an AudiobookShelf server you already run. This page covers the slim image.
+- **All-in-One** (`hearthshelf-aio:latest`) — HearthShelf *with AudiobookShelf bundled inside*, one container, set up for you. See [All-in-One](/setup/all-in-one).
 
 ::: tip Which one?
 Already have AudiobookShelf running? Use **slim** (below). Starting fresh, or want a single container that is the whole stack? Use [All-in-One](/setup/all-in-one) — it's the most frictionless setup. Want to consolidate an existing slim + ABS setup down to one container? See [Migrate to All-in-One](/setup/migrate-to-aio).
@@ -19,7 +19,7 @@ services:
   hearthshelf:
     image: ghcr.io/hearthshelf/hearthshelf:latest
     ports:
-      - "3000:80"
+      - "9277:80"
     environment:
       - ABS_SERVER_URL=http://192.168.1.100:13378
     restart: unless-stopped
@@ -38,7 +38,7 @@ services:
   hearthshelf:
     image: ghcr.io/hearthshelf/hearthshelf:latest
     ports:
-      - "3000:80"
+      - "9277:80"
     environment:
       - ABS_SERVER_URL=http://abs:13378
       - PUBLIC_URL=https://books.mydomain.com

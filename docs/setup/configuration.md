@@ -29,7 +29,7 @@ services:
     image: ghcr.io/hearthshelf/hearthshelf:latest
     env_file: .env
     ports:
-      - "3000:80"
+      - "9277:80"
 ```
 
 ## Community leaderboard

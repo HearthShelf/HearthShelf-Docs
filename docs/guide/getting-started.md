@@ -19,11 +19,11 @@ The most frictionless way to start. Create a `docker-compose.yml`:
 ```yaml
 services:
   hearthshelf:
-    image: ghcr.io/hearthshelf/hearthshelf:latest-aio
+    image: ghcr.io/hearthshelf/hearthshelf-aio:latest
     ports:
-      - "3000:80"
+      - "9277:80"
     environment:
-      - PUBLIC_URL=http://localhost:3000
+      - PUBLIC_URL=http://localhost:9277
     volumes:
       - ./audiobooks:/audiobooks
       - ./abs-config:/config
@@ -36,7 +36,7 @@ services:
 docker compose up -d
 ```
 
-Open `http://localhost:3000`. HearthShelf sets up the bundled AudiobookShelf for you and walks you through a short setup wizard — see the [All-in-One guide](/setup/all-in-one) for what to expect (including your generated admin credentials).
+Open `http://localhost:9277`. HearthShelf sets up the bundled AudiobookShelf for you and walks you through a short setup wizard — see the [All-in-One guide](/setup/all-in-one) for what to expect (including your generated admin credentials).
 
 ## Slim Quick Start
 
@@ -47,7 +47,7 @@ services:
   hearthshelf:
     image: ghcr.io/hearthshelf/hearthshelf:latest
     ports:
-      - "3000:80"
+      - "9277:80"
     environment:
       - ABS_SERVER_URL=http://192.168.1.100:13378
     restart: unless-stopped
@@ -59,7 +59,7 @@ Replace `192.168.1.100:13378` with your ABS server's address, then run:
 docker compose up -d
 ```
 
-Open `http://localhost:3000` in your browser and log in with your ABS credentials.
+Open `http://localhost:9277` in your browser and log in with your ABS credentials.
 
 ::: info
 On the slim image HearthShelf does **not** replace your ABS server — it only replaces the web UI. You need ABS running before HearthShelf is useful.
@@ -75,7 +75,7 @@ On the slim image HearthShelf does **not** replace your ABS server — it only r
 
 ## Accessing HearthShelf
 
-Once the container starts, open HearthShelf at the port you mapped (e.g. `http://localhost:3000`).
+Once the container starts, open HearthShelf at the port you mapped (e.g. `http://localhost:9277`).
 
 Log in with the same username and password you use for AudiobookShelf. HearthShelf validates your token against ABS — no separate account is needed.
 
