@@ -5,3 +5,6 @@ docs/.vitepress/cache/
 .env
 .env.*
 .DS_Store
+
+# Local-only agent notes
+CLAUDE.local.md
