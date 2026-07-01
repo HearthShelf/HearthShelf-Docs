@@ -30,6 +30,12 @@
   font-size: 19px;
   line-height: 1;
 }
-.nav-wordmark .lt { font-weight: 400; color: var(--hs-wordmark-hearth); }
-.nav-wordmark .bd { font-weight: 700; color: var(--hs-wordmark-shelf); }
+.nav-wordmark .lt {
+  font-weight: 400;
+  color: var(--hs-wordmark-hearth);
+}
+.nav-wordmark .bd {
+  font-weight: 700;
+  color: var(--hs-wordmark-shelf);
+}
 </style>

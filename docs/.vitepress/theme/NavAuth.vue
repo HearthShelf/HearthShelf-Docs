@@ -16,9 +16,7 @@ const APP_URL = 'https://app.hearthshelf.com'
 const clerkReady = !!import.meta.env.VITE_CLERK_PUBLISHABLE_KEY
 
 // Async so the @clerk/vue bundle is only pulled in when a key exists.
-const ClerkNav = clerkReady
-  ? defineAsyncComponent(() => import('./ClerkNav.vue'))
-  : null
+const ClerkNav = clerkReady ? defineAsyncComponent(() => import('./ClerkNav.vue')) : null
 </script>
 
 <template>

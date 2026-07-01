@@ -14,80 +14,80 @@
 
 /* Light palette (daytime) */
 :root {
-  --hs-base:        #f0e6d6;
-  --hs-surface:     #f7eee0;
-  --hs-surface-2:   #fbf6ee;
-  --hs-border:      #dbceb8;
-  --hs-text:        #1b1a18;
-  --hs-text-muted:  #6f6557;
-  --hs-text-faint:  #948a78;
-  --hs-ember:       #c8553c;
-  --hs-ember-dim:   rgba(224, 101, 74, 0.16);
-  --hs-ember-glow:  rgba(224, 101, 74, 0.06);
-  --hs-gold:        #bd863f;
-  --hs-cream:       #1b1a18;
-  --hs-nav-bg:      rgba(240, 230, 214, 0.88);
-  --hs-code-block:  #fbf6ee;
+  --hs-base: #f0e6d6;
+  --hs-surface: #f7eee0;
+  --hs-surface-2: #fbf6ee;
+  --hs-border: #dbceb8;
+  --hs-text: #1b1a18;
+  --hs-text-muted: #6f6557;
+  --hs-text-faint: #948a78;
+  --hs-ember: #c8553c;
+  --hs-ember-dim: rgba(224, 101, 74, 0.16);
+  --hs-ember-glow: rgba(224, 101, 74, 0.06);
+  --hs-gold: #bd863f;
+  --hs-cream: #1b1a18;
+  --hs-nav-bg: rgba(240, 230, 214, 0.88);
+  --hs-code-block: #fbf6ee;
 
   /* brand wordmark — "Shelf" inks dark on the cream page */
   --hs-wordmark-hearth: #bd863f;
-  --hs-wordmark-shelf:  #1b1a18;
+  --hs-wordmark-shelf: #1b1a18;
 }
 
 /* Dark palette (home / product default) */
 .dark {
-  --hs-base:        #1b1a18;
-  --hs-surface:     #232220;
-  --hs-surface-2:   #2c2b28;
-  --hs-border:      #3a3835;
-  --hs-text:        #e8e3d8;
-  --hs-text-muted:  #9e9a91;
-  --hs-text-faint:  #6e6b64;
-  --hs-ember:       #e0654a;
-  --hs-ember-dim:   rgba(224, 101, 74, 0.18);
-  --hs-ember-glow:  rgba(224, 101, 74, 0.08);
-  --hs-gold:        #c9a96e;
-  --hs-cream:       #e8e3d8;
-  --hs-nav-bg:      rgba(27, 26, 24, 0.88);
-  --hs-code-block:  #201f1d;
+  --hs-base: #1b1a18;
+  --hs-surface: #232220;
+  --hs-surface-2: #2c2b28;
+  --hs-border: #3a3835;
+  --hs-text: #e8e3d8;
+  --hs-text-muted: #9e9a91;
+  --hs-text-faint: #6e6b64;
+  --hs-ember: #e0654a;
+  --hs-ember-dim: rgba(224, 101, 74, 0.18);
+  --hs-ember-glow: rgba(224, 101, 74, 0.08);
+  --hs-gold: #c9a96e;
+  --hs-cream: #e8e3d8;
+  --hs-nav-bg: rgba(27, 26, 24, 0.88);
+  --hs-code-block: #201f1d;
 
   /* brand wordmark — "Shelf" is cream on the dark base */
   --hs-wordmark-hearth: #bd863f;
-  --hs-wordmark-shelf:  #f0e6d6;
+  --hs-wordmark-shelf: #f0e6d6;
 }
 
 /* VitePress role overrides — shared, resolve through the --hs-* tokens above
    so they track whichever palette is active. */
 :root {
-  --vp-c-bg:               var(--hs-base);
-  --vp-c-bg-soft:          var(--hs-surface);
-  --vp-c-bg-mute:          var(--hs-surface-2);
-  --vp-c-bg-alt:           var(--hs-surface);
-  --vp-c-divider:          var(--hs-border);
-  --vp-c-text-1:           var(--hs-text);
-  --vp-c-text-2:           var(--hs-text-muted);
-  --vp-c-text-3:           var(--hs-text-faint);
+  --vp-c-bg: var(--hs-base);
+  --vp-c-bg-soft: var(--hs-surface);
+  --vp-c-bg-mute: var(--hs-surface-2);
+  --vp-c-bg-alt: var(--hs-surface);
+  --vp-c-divider: var(--hs-border);
+  --vp-c-text-1: var(--hs-text);
+  --vp-c-text-2: var(--hs-text-muted);
+  --vp-c-text-3: var(--hs-text-faint);
 
-  --vp-c-brand-1:          var(--hs-ember);
-  --vp-c-brand-2:          #c8553c;
-  --vp-c-brand-3:          var(--hs-ember-dim);
-  --vp-c-brand-soft:       var(--hs-ember-glow);
+  --vp-c-brand-1: var(--hs-ember);
+  --vp-c-brand-2: #c8553c;
+  --vp-c-brand-3: var(--hs-ember-dim);
+  --vp-c-brand-soft: var(--hs-ember-glow);
 
   /* Nav */
-  --vp-nav-bg-color:        var(--hs-nav-bg);
+  --vp-nav-bg-color: var(--hs-nav-bg);
 
   /* Sidebar */
-  --vp-sidebar-bg-color:    var(--hs-surface);
+  --vp-sidebar-bg-color: var(--hs-surface);
 
   /* Code blocks */
-  --vp-code-bg:             var(--hs-surface-2);
-  --vp-code-color:          var(--hs-text);
-  --vp-code-block-bg:       var(--hs-code-block);
-  --vp-code-tab-bg:         var(--hs-surface);
+  --vp-code-bg: var(--hs-surface-2);
+  --vp-code-color: var(--hs-text);
+  --vp-code-block-bg: var(--hs-code-block);
+  --vp-code-tab-bg: var(--hs-surface);
 
   /* Custom properties */
-  --vp-font-family-base:    'DM Sans', sans-serif;
-  --vp-font-family-mono:    'DM Mono', monospace;
+  --vp-font-family-base: 'DM Sans', sans-serif;
+  --vp-font-family-mono: 'DM Mono', monospace;
 }
 
 /* ── Typography ── */
@@ -208,8 +208,9 @@ body {
   transform: translate(-50%, -50%);
   width: 440px;
   height: 440px;
-  background: radial-gradient(circle at center,
-    rgba(224, 101, 74, 0.20) 0%,
+  background: radial-gradient(
+    circle at center,
+    rgba(224, 101, 74, 0.2) 0%,
     rgba(201, 169, 110, 0.08) 40%,
     transparent 70%
   );
@@ -283,12 +284,16 @@ body {
   background: var(--hs-surface) !important;
   border: 1px solid var(--hs-border) !important;
   border-radius: 8px !important;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .VPFeature:hover {
   border-color: var(--hs-ember) !important;
-  box-shadow: 0 0 0 1px var(--hs-ember-dim), 0 8px 32px rgba(0, 0, 0, 0.3);
+  box-shadow:
+    0 0 0 1px var(--hs-ember-dim),
+    0 8px 32px rgba(0, 0, 0, 0.3);
 }
 
 .VPFeature .icon {
