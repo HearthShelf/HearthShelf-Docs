@@ -9,8 +9,18 @@ HearthShelf ships in two flavors:
 
 The **all-in-one** (AIO) image is the most frictionless way to start. It contains the official AudiobookShelf server alongside HearthShelf. HearthShelf sets ABS up for you on first boot and owns the entire onboarding flow, so you never touch ABS's own setup screens.
 
+Standing one up is the same three steps as a new Plex server:
+
+1. **Install** — run the container (below).
+2. **Forward a port** — only if you want to reach it from outside your home. Forward one port and hs.direct gives your server a free, secure web address on its own. See [Remote Access](/setup/remote-access). Home-only? Skip this.
+3. **Run the setup wizard** — open it in your browser and follow the first-run wizard.
+
 ::: tip Already running ABS?
 If you have an existing AudiobookShelf server, use the [slim image](/setup/docker) instead — point it at your server. If you'd rather consolidate down to a single container later, see [Migrate to All-in-One](/setup/migrate-to-aio).
+:::
+
+::: tip Unraid Community Apps (coming soon)
+HearthShelf will be published to the **Unraid Community Apps** catalog — both the all-in-one and slim images — so you can install it with a couple of clicks instead of writing compose by hand. The templates are ready; they'll land once the build settles into a more feature-complete release. Until then, use the Docker steps below.
 :::
 
 ## Quick Start

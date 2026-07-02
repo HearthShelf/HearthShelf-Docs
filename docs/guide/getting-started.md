@@ -2,10 +2,16 @@
 
 Get HearthShelf running in under five minutes with Docker Compose. Pick the path that matches your setup.
 
+With the All-in-One image it's the same three steps as standing up a new Plex server: **install** the container, **forward a port** if you want it from outside your home, and **run the setup wizard**.
+
 ## Which Setup?
 
 - **Starting fresh / want the simplest install** → use the **All-in-One** image. One container holds HearthShelf *and* AudiobookShelf; it sets ABS up for you. Jump to [All-in-One Quick Start](#all-in-one-quick-start).
 - **Already running AudiobookShelf** → use the **Slim** image and point it at your server. Jump to [Slim Quick Start](#slim-quick-start).
+
+::: tip Unraid users
+HearthShelf is coming to the **Unraid Community Apps** catalog (both images), so you'll be able to install it from Unraid's own UI without writing compose. Until that lands, follow the Docker steps below. See [All-in-One](/setup/all-in-one) for details.
+:::
 
 ## Prerequisites
 

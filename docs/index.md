@@ -32,4 +32,8 @@ features:
     title: Hosted WebApp
     details: Pair the hosted client with your own server. Linking and invites.
     link: /webapp/overview
+  - icon: 📱
+    title: Mobile App
+    details: The native Android app, with Android Auto for the car. iOS is on the way.
+    link: /mobile/overview
 ---

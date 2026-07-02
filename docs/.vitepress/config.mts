@@ -1,5 +1,65 @@
-import { defineConfig } from 'vitepress'
+import { defineConfig, type DefaultTheme } from 'vitepress'
 import { withMermaid } from 'vitepress-plugin-mermaid'
+
+// The four top-level sections, defined once. Every group is shown on every page
+// so the whole documentation tree is always visible in the left menu (the group
+// for the section you're in is expanded, the rest are collapsed).
+const SECTIONS: (DefaultTheme.SidebarItem & { base: string })[] = [
+  {
+    base: '/guide/',
+    text: 'Introduction',
+    items: [
+      { text: 'What is HearthShelf?', link: '/guide/what-is-hearthshelf' },
+      { text: 'Getting Started', link: '/guide/getting-started' },
+      { text: 'FAQ', link: '/guide/faq' },
+    ],
+  },
+  {
+    base: '/setup/',
+    text: 'Self-Hosted Setup',
+    items: [
+      { text: 'Docker (Slim)', link: '/setup/docker' },
+      { text: 'All-in-One', link: '/setup/all-in-one' },
+      { text: 'Migrate to All-in-One', link: '/setup/migrate-to-aio' },
+      { text: 'Configuration', link: '/setup/configuration' },
+      { text: 'Reverse Proxy', link: '/setup/reverse-proxy' },
+      { text: 'Remote Access', link: '/setup/remote-access' },
+      { text: 'Authentication', link: '/setup/authentication' },
+    ],
+  },
+  {
+    base: '/webapp/',
+    text: 'Hosted WebApp',
+    items: [
+      { text: 'Overview', link: '/webapp/overview' },
+      { text: 'Architecture', link: '/webapp/architecture' },
+      { text: 'Linking & Invites', link: '/webapp/pairing' },
+    ],
+  },
+  {
+    base: '/mobile/',
+    text: 'Mobile App',
+    items: [
+      { text: 'Overview', link: '/mobile/overview' },
+      { text: 'Install (Android)', link: '/mobile/install' },
+      { text: 'Android Auto', link: '/mobile/android-auto' },
+    ],
+  },
+]
+
+// Build one full sidebar tree, then register it under every section base so the
+// same complete menu renders no matter which page the reader is on. The group
+// matching the current path stays expanded; the others start collapsed.
+function buildSidebar(): DefaultTheme.Sidebar {
+  const sidebar: DefaultTheme.Sidebar = {}
+  for (const active of SECTIONS) {
+    sidebar[active.base] = SECTIONS.map(({ base, ...group }) => ({
+      ...group,
+      collapsed: base !== active.base,
+    }))
+  }
+  return sidebar
+}
 
 export default withMermaid(
   defineConfig({
@@ -32,48 +92,14 @@ export default withMermaid(
         { text: 'Guide', link: '/guide/what-is-hearthshelf' },
         { text: 'Setup', link: '/setup/docker' },
         { text: 'WebApp', link: '/webapp/overview' },
+        { text: 'Mobile', link: '/mobile/overview' },
         {
           text: 'GitHub',
           link: 'https://github.com/HearthShelf/HearthShelf',
         },
       ],
 
-      sidebar: {
-        '/guide/': [
-          {
-            text: 'Introduction',
-            items: [
-              { text: 'What is HearthShelf?', link: '/guide/what-is-hearthshelf' },
-              { text: 'Getting Started', link: '/guide/getting-started' },
-              { text: 'FAQ', link: '/guide/faq' },
-            ],
-          },
-        ],
-        '/setup/': [
-          {
-            text: 'Setup',
-            items: [
-              { text: 'Docker (Slim)', link: '/setup/docker' },
-              { text: 'All-in-One', link: '/setup/all-in-one' },
-              { text: 'Migrate to All-in-One', link: '/setup/migrate-to-aio' },
-              { text: 'Configuration', link: '/setup/configuration' },
-              { text: 'Reverse Proxy', link: '/setup/reverse-proxy' },
-              { text: 'Remote Access', link: '/setup/remote-access' },
-              { text: 'Authentication', link: '/setup/authentication' },
-            ],
-          },
-        ],
-        '/webapp/': [
-          {
-            text: 'Hosted WebApp',
-            items: [
-              { text: 'Overview', link: '/webapp/overview' },
-              { text: 'Architecture', link: '/webapp/architecture' },
-              { text: 'Linking & Invites', link: '/webapp/pairing' },
-            ],
-          },
-        ],
-      },
+      sidebar: buildSidebar(),
 
       socialLinks: [{ icon: 'github', link: 'https://github.com/HearthShelf/HearthShelf' }],
 

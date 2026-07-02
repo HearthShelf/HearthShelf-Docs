@@ -32,9 +32,13 @@ rather; hs.direct stays on as a reliable backup connection.
 
 Yes. The OpenID button appears on the login page when your ABS server has OpenID configured. HearthShelf implements the full OAuth2 PKCE flow.
 
+## Is there a HearthShelf mobile app?
+
+Yes, though it's early. There's a native **Android** app with **Android Auto** support for playing in the car; **iOS is a later milestone.** It signs in through `app.hearthshelf.com` and connects to your linked server. Today you install it by sideloading an APK while the Play Store listing is prepared — see [the Mobile App docs](/mobile/overview). If you'd rather not use a beta, the native AudiobookShelf phone apps still work against your server unchanged (see the ABSORB question above).
+
 ## Does HearthShelf work offline?
 
-No. HearthShelf fetches all data from your ABS server in real-time. Offline/PWA mode is not in scope. For offline listening, use the native ABSORB app.
+No. The HearthShelf web and mobile apps fetch all data from your ABS server in real time. Offline/PWA mode is not in scope. For offline listening, use a native AudiobookShelf app.
 
 ## Why is ABS not public-facing in the recommended setup?
 
