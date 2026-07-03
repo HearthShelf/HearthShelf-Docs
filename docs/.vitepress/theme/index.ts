@@ -5,6 +5,7 @@ import NavAuth from './NavAuth.vue'
 import NavLogo from './NavLogo.vue'
 import HeroName from './HeroName.vue'
 import NotFound from './NotFound.vue'
+import ThemeSwitch from './ThemeSwitch.vue'
 import './custom.css'
 
 const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY
@@ -16,7 +17,7 @@ export default {
     // <ClientOnly> itself, so SSR is safe.
     return h(DefaultTheme.Layout, null, {
       'nav-bar-title-before': () => h(NavLogo),
-      'nav-bar-content-after': () => h(NavAuth),
+      'nav-bar-content-after': () => [h(ThemeSwitch), h(NavAuth)],
       'home-hero-info-before': () => h(HeroName),
       'not-found': () => h(NotFound),
     })

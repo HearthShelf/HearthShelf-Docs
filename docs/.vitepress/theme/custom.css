@@ -151,6 +151,19 @@ body {
   color: var(--hs-ember) !important;
 }
 
+/* Replace the stock two-state appearance toggle with our own 3-way
+   Light/Dark/System switch (ThemeSwitch.vue, injected in theme/index.ts).
+   Hide the built-in one in both the nav bar and the mobile menu. */
+.VPNavBarAppearance,
+.VPNavScreenAppearance {
+  display: none !important;
+}
+
+/* Give the injected switch some breathing room from the auth control. */
+.VPNavBar .content-body .hs-theme-switch {
+  margin-right: 12px;
+}
+
 /* ── Sidebar ── */
 .VPSidebar {
   background: var(--hs-surface) !important;
