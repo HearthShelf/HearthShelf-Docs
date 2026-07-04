@@ -1,5 +1,8 @@
 # HearthShelf Docs
 
+[![Docs](https://img.shields.io/badge/docs-docs.hearthshelf.com-2c6e6b)](https://docs.hearthshelf.com)
+[![Website](https://img.shields.io/badge/site-hearthshelf.com-2c6e6b)](https://hearthshelf.com)
+
 Documentation site for [HearthShelf](https://github.com/HearthShelf/HearthShelf), built with [VitePress](https://vitepress.dev) and hosted on Cloudflare Pages at **docs.hearthshelf.com**.
 
 The marketing landing page lives in a separate repo: [HearthShelf-Website](https://github.com/HearthShelf/HearthShelf-Website) (hearthshelf.com).
@@ -26,4 +29,5 @@ plain links into the app.
 - `docs/guide/` — introduction, getting started, FAQ
 - `docs/setup/` — Docker, All-in-One, configuration, reverse proxy, auth
 - `docs/webapp/` — hosted WebApp overview, architecture, pairing
+- `docs/mobile/` — mobile app overview and setup
 - `docs/.vitepress/` — VitePress config and custom theme (nav auth + logo)
