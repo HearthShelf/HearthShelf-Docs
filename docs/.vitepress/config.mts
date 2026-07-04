@@ -28,6 +28,15 @@ const SECTIONS: (DefaultTheme.SidebarItem & { base: string })[] = [
     ],
   },
   {
+    base: '/data/',
+    text: 'Backups & Migration',
+    items: [
+      { text: 'Backups', link: '/data/backups' },
+      { text: 'Restore & Migration', link: '/data/restore' },
+      { text: 'Leaving HearthShelf', link: '/data/leaving' },
+    ],
+  },
+  {
     base: '/webapp/',
     text: 'Hosted WebApp',
     items: [
@@ -91,6 +100,7 @@ export default withMermaid(
         { text: 'HearthShelf.com', link: 'https://hearthshelf.com' },
         { text: 'Guide', link: '/guide/what-is-hearthshelf' },
         { text: 'Setup', link: '/setup/docker' },
+        { text: 'Backups', link: '/data/backups' },
         { text: 'WebApp', link: '/webapp/overview' },
         { text: 'Mobile', link: '/mobile/overview' },
         {
