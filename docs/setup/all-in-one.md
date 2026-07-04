@@ -98,7 +98,7 @@ Back up `/config` and `/app/data` the same way you'd back up any ABS install. St
 You do **not** set `ABS_SERVER_URL` on the AIO image — it points at the bundled ABS on `127.0.0.1` automatically.
 
 ::: tip Pointing native apps here too
-nginx is the only ingress (port 80). The bundled ABS is reachable only through it, so a native client like ABSORB can use the same `PUBLIC_URL` as the browser. See [Reverse Proxy](/setup/reverse-proxy).
+nginx is the only ingress (port 80). The bundled ABS is reachable only through it, so a native AudiobookShelf client can use the same `PUBLIC_URL` as the browser. See [Reverse Proxy](/setup/reverse-proxy).
 :::
 
 ## How It Runs Inside the Container

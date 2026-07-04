@@ -74,7 +74,7 @@ HearthShelf nginx handles two categories of routes at runtime:
 |---|---|---|
 | `/abs-api/*` | ABS (strips prefix) | HearthShelf SPA's REST calls |
 | `/abs-socket/*` | ABS (strips prefix) | HearthShelf SPA's Socket.io |
-| `/api/*` | ABS (transparent) | Native ABS clients (ABSORB) |
+| `/api/*` | ABS (transparent) | Native ABS clients |
 | `/socket.io/*` | ABS (transparent) | Native ABS websocket |
 | `/login`, `/logout`, etc. | ABS (transparent) | Native ABS auth endpoints |
 | Everything else | SPA (`index.html`) | React Router client-side routes |

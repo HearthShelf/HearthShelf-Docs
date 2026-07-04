@@ -6,7 +6,7 @@ The transparent reverse-proxy model lets HearthShelf be the **only host** any en
 If you only need your server reachable from app.hearthshelf.com and don't care
 about using your own domain, **hs.direct** does it with one setting and no proxy —
 see [Remote Access](/setup/remote-access). This page is for running your **own
-domain** through a transparent proxy (so ABSORB and the browser share one host).
+domain** through a transparent proxy (so native apps and the browser share one host).
 :::
 
 ## Goal
@@ -16,9 +16,9 @@ End users interact exclusively with a single address (e.g. `books.mydomain.com`)
 | Client | What it expects | How it reaches ABS |
 |---|---|---|
 | Web browser | The HearthShelf SPA | SPA at `/`, calls ABS through `/abs-api/*` prefix |
-| ABSORB mobile app | A real ABS server | Native ABS paths (`/api/*`, `/socket.io/*`, streams) proxied transparently |
+| Native AudiobookShelf app | A real ABS server | Native ABS paths (`/api/*`, `/socket.io/*`, streams) proxied transparently |
 
-The non-technical user story: you hand your family a login plus the ABSORB app. To them, the website **is** HearthShelf and the mobile app **is** their audiobook app. They never see, type, or know the internal ABS address.
+The non-technical user story: you hand your family a login plus a native AudiobookShelf app. To them, the website **is** HearthShelf and the mobile app **is** their audiobook app. They never see, type, or know the internal ABS address.
 
 ## Network Model
 
@@ -26,7 +26,7 @@ The non-technical user story: you hand your family a login plus the ABSORB app. 
 flowchart TD
     net["<b>Internet / LAN</b>"]
     domain["<b>books.mydomain.com</b><br/><small>:443 or :80</small>"]
-    nginx["<b>HearthShelf nginx container</b><br/><small>/abs-api/* &rarr; ABS (SPA's API calls)<br/>/abs-socket/* &rarr; ABS (SPA's socket)<br/>/api/* /socket.io/* etc &rarr; ABS (ABSORB)<br/>everything else &rarr; SPA (index.html)</small>"]
+    nginx["<b>HearthShelf nginx container</b><br/><small>/abs-api/* &rarr; ABS (SPA's API calls)<br/>/abs-socket/* &rarr; ABS (SPA's socket)<br/>/api/* /socket.io/* etc &rarr; ABS (native apps)<br/>everything else &rarr; SPA (index.html)</small>"]
     abs["<b>ABS</b> &nbsp; http://abs:13378<br/><small>no published port &mdash; internal only</small>"]
 
     net --> domain
@@ -43,8 +43,8 @@ flowchart TD
 |---|---|---|
 | `/abs-api/*` | ABS | SPA's REST calls — strips prefix |
 | `/abs-socket/*` | ABS | SPA's socket — strips prefix, websocket upgrade |
-| `/api/*` | ABS | Native ABS REST (ABSORB) |
-| `/socket.io/*` | ABS | Native ABS socket (ABSORB) |
+| `/api/*` | ABS | Native ABS REST |
+| `/socket.io/*` | ABS | Native ABS socket |
 | `/login`, `/logout` | ABS | Native ABS auth |
 | `/auth/*` | ABS | OIDC initiation/callback |
 | `/status`, `/healthcheck`, `/ping` | ABS | Health probes |
@@ -112,7 +112,7 @@ If you use OpenID Connect login:
 
 - [ ] ABS has no published `ports:` — unreachable except via internal network
 - [ ] Browser → `https://books.mydomain.com/` loads HearthShelf, `/abs-api/*` calls succeed
-- [ ] ABSORB configured with only `https://books.mydomain.com` — logs in, streams audio, syncs progress
+- [ ] A native AudiobookShelf app configured with only `https://books.mydomain.com` — logs in, streams audio, syncs progress
 - [ ] No `Location` header or visible URL ever exposes the internal ABS address
-- [ ] Websocket upgrades work for both `/abs-socket/*` (SPA) and `/socket.io/*` (ABSORB)
+- [ ] Websocket upgrades work for both `/abs-socket/*` (SPA) and `/socket.io/*` (native app)
 - [ ] OIDC login completes and callback returns to `books.mydomain.com` (if using OIDC)

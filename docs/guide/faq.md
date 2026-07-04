@@ -4,13 +4,13 @@
 
 No. HearthShelf only replaces the web UI. AudiobookShelf continues to manage your files, process uploads, transcode audio, and serve your library. HearthShelf is the face — ABS is the engine.
 
-## Will the ABSORB mobile app still work?
+## Will the native AudiobookShelf mobile apps still work?
 
-Yes. With the transparent reverse-proxy model (see [Reverse Proxy](/setup/reverse-proxy)), you can run both HearthShelf (browser) and the native ABSORB mobile app through the same public hostname. Your family only needs one address.
+Yes. With the transparent reverse-proxy model (see [Reverse Proxy](/setup/reverse-proxy)), you can run both HearthShelf (browser) and the native AudiobookShelf mobile apps through the same public hostname. Your family only needs one address.
 
 ## Do I need to modify my ABS server?
 
-No ABS configuration changes are required for basic setup. For the optional transparent reverse-proxy (ABSORB compatibility), you'll want to set ABS's external/base URL to your public hostname. For OpenID Connect login, your OIDC provider needs to have the HearthShelf callback URL added to its allowed-redirect list.
+No ABS configuration changes are required for basic setup. For the optional transparent reverse-proxy (native-app compatibility), you'll want to set ABS's external/base URL to your public hostname. For OpenID Connect login, your OIDC provider needs to have the HearthShelf callback URL added to its allowed-redirect list.
 
 ## Will my ABS progress sync work?
 
@@ -34,7 +34,7 @@ Yes. The OpenID button appears on the login page when your ABS server has OpenID
 
 ## Is there a HearthShelf mobile app?
 
-Yes, though it's early. There's a native **Android** app with **Android Auto** support for playing in the car; **iOS is a later milestone.** It signs in through `app.hearthshelf.com` and connects to your linked server. Today you install it by sideloading an APK while the Play Store listing is prepared — see [the Mobile App docs](/mobile/overview). If you'd rather not use a beta, the native AudiobookShelf phone apps still work against your server unchanged (see the ABSORB question above).
+Yes, though it's early. There's a native **Android** app with **Android Auto** support for playing in the car; **iOS is a later milestone.** It signs in through `app.hearthshelf.com` and connects to your linked server. Today you install it by sideloading an APK while the Play Store listing is prepared — see [the Mobile App docs](/mobile/overview). If you'd rather not use a beta, the native AudiobookShelf phone apps still work against your server unchanged (see the native-apps question above).
 
 ## Does HearthShelf work offline?
 

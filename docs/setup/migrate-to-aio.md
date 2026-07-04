@@ -71,7 +71,7 @@ services:
 The AIO image talks to the bundled ABS on loopback automatically. Remove `ABS_SERVER_URL` — leaving it set can point HearthShelf at the wrong server.
 :::
 
-Keep `PUBLIC_URL` exactly as it was so your reverse proxy, OIDC redirects, and any native (ABSORB) clients keep working unchanged.
+Keep `PUBLIC_URL` exactly as it was so your reverse proxy, OIDC redirects, and any native AudiobookShelf clients keep working unchanged.
 
 ## Step 3: Start and Verify
 
@@ -115,5 +115,5 @@ HearthShelf didn't find an existing ABS database — usually a volume path typo.
 **"ABS won't start after the switch."**
 The bundled ABS version may be older than the one that wrote your database. Pin the AIO image to a tag at or above your previous ABS version, or update ABS first, then migrate.
 
-**"Native apps (ABSORB) can't connect anymore."**
+**"Native AudiobookShelf apps can't connect anymore."**
 Make sure `PUBLIC_URL` is unchanged and your reverse proxy still forwards to the container. The transparent proxy behavior is identical between slim and AIO — see [Reverse Proxy](/setup/reverse-proxy).

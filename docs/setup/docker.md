@@ -61,8 +61,8 @@ networks:
   internal:
 ```
 
-::: tip ABSORB compatibility
-With the `internal` network setup and no `ports:` on ABS, the [transparent reverse-proxy](/setup/reverse-proxy) configuration lets the ABSORB mobile app use the same `PUBLIC_URL` as the browser. Users need only one address for everything.
+::: tip Native app compatibility
+With the `internal` network setup and no `ports:` on ABS, the [transparent reverse-proxy](/setup/reverse-proxy) configuration lets a native AudiobookShelf mobile app use the same `PUBLIC_URL` as the browser. Users need only one address for everything.
 :::
 
 ## Environment Variables
