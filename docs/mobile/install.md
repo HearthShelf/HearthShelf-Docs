@@ -15,11 +15,10 @@ The app signs in through `app.hearthshelf.com` and then connects straight to you
 
 ## Option 1: Install the prebuilt APK (recommended)
 
-1. Open the [HearthShelf-Mobile repository](https://github.com/HearthShelf) on GitHub and go to the **Actions** tab.
-2. Open the latest successful **Build Android** run.
-3. Under **Artifacts**, download `app-debug-apk-<run-number>`. (Each build stamps its run number as the app's version code, so you can tell builds apart on-device.)
-4. Unzip it to get the `.apk`, copy it to your phone, and open it. Allow "install from unknown sources" when Android prompts.
-5. Launch **HearthShelf**, tap **Sign in with Google**, and pick your linked server.
+1. Open the latest successful [**Build Android** run](https://github.com/HearthShelf/HearthShelf-Mobile/actions/workflows/build-android.yml).
+2. Under **Artifacts**, download `app-debug-apk-<run-number>`. (Each build stamps its run number as the app's version code, so you can tell builds apart on-device.)
+3. Unzip it to get the `.apk`, copy it to your phone, and open it. Allow "install from unknown sources" when Android prompts.
+4. Launch **HearthShelf**, tap **Sign in with Google**, and pick your linked server.
 
 Updating later is the same steps with a newer run — installing over the top keeps your sign-in.
 
