@@ -51,8 +51,9 @@ const SECTIONS: (DefaultTheme.SidebarItem & { base: string })[] = [
     text: 'Mobile App',
     items: [
       { text: 'Overview', link: '/mobile/overview' },
-      { text: 'Install (Android)', link: '/mobile/install' },
+      { text: 'Install', link: '/mobile/install' },
       { text: 'Android Auto', link: '/mobile/android-auto' },
+      { text: 'CarPlay', link: '/mobile/carplay' },
     ],
   },
 ]

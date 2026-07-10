@@ -38,5 +38,5 @@ Make sure you're on a standalone build (not a USB-tethered dev build) and that y
 **It appears but the library is empty.**
 The car browses the same library your phone does. Confirm the phone is signed in and can reach your server over HTTPS — the car has no separate connection of its own.
 
-**iOS / CarPlay?**
-Not yet. CarPlay is planned alongside the iOS app as a later milestone.
+**On iOS?**
+iOS uses CarPlay for the same in-car experience — see [CarPlay](/mobile/carplay).

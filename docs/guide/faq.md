@@ -34,7 +34,7 @@ Yes. The OpenID button appears on the login page when your ABS server has OpenID
 
 ## Is there a HearthShelf mobile app?
 
-Yes, though it's early. There's a native **Android** app with **Android Auto** support for playing in the car; **iOS is a later milestone.** It signs in through `app.hearthshelf.com` and connects to your linked server. Today you install it by sideloading an APK while the Play Store listing is prepared — see [the Mobile App docs](/mobile/overview). If you'd rather not use a beta, the native AudiobookShelf phone apps still work against your server unchanged (see the native-apps question above).
+Yes. There are native **Android** and **iOS** apps, both in public beta, with in-car playback via **Android Auto** and **CarPlay**. They sign in through `app.hearthshelf.com` and connect to your linked server. Join the beta on [TestFlight (iOS)](https://testflight.apple.com/join/ehxv65Ms) or [Play internal testing (Android)](https://play.google.com/apps/internaltest/4701644118536911529) — see [the Mobile App docs](/mobile/overview) for the full walkthrough. If you'd rather not run a beta, the native AudiobookShelf phone apps still work against your server unchanged (see the native-apps question above).
 
 ## Does HearthShelf work offline?
 

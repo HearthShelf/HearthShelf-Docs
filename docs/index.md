@@ -34,6 +34,6 @@ features:
     link: /webapp/overview
   - icon: 📱
     title: Mobile App
-    details: The native Android app, with Android Auto for the car. iOS is on the way.
+    details: Native Android and iOS apps, with Android Auto and CarPlay for the car. Both in public beta.
     link: /mobile/overview
 ---

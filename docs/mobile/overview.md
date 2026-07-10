@@ -1,9 +1,9 @@
 # The Mobile App
 
-HearthShelf Mobile is the native phone app for HearthShelf. It signs in through the [hosted WebApp](/webapp/overview) (`app.hearthshelf.com`), connects to your linked server, and plays your audiobook library — including **in the car via Android Auto**.
+HearthShelf Mobile is the native phone app for HearthShelf. It signs in through the [hosted WebApp](/webapp/overview) (`app.hearthshelf.com`), connects to your linked server, and plays your audiobook library — including **in the car via Android Auto and CarPlay**.
 
-::: warning In active development
-The mobile app is early. **Android is first** and is distributed today as a sideloadable APK (see [Install](/mobile/install)) while the Play Store listing is prepared. **iOS is a later milestone.** Expect rough edges and frequent changes. If you just want a phone client today, the native AudiobookShelf apps still work against your server unchanged — see the [FAQ](/guide/faq).
+::: warning In public beta
+The mobile app is in **public beta on both Android and iOS**. You can join either beta today — Android through Play internal testing, iOS through TestFlight (see [Install](/mobile/install)). Expect rough edges and frequent changes. If you'd rather not run a beta, the native AudiobookShelf apps still work against your server unchanged — see the [FAQ](/guide/faq).
 :::
 
 ## What it is
@@ -12,7 +12,7 @@ The same idea as the web experience, in your pocket:
 
 - **One sign-in.** You authenticate once with the hosted WebApp (Google, via Clerk) and connect to the server you've been linked to — no server IP to type, no separate password. This is the exact flow the web app uses.
 - **Background audio.** Playback keeps going with the screen off, with lock-screen and notification controls.
-- **Android Auto.** Browse and play your library from your car's screen. This is a real native Media3 player, not a mirrored phone screen — see [Android Auto](/mobile/android-auto).
+- **In the car.** Browse and play your library from your car's screen — [Android Auto](/mobile/android-auto) on Android, [CarPlay](/mobile/carplay) on iOS. Both are real native car players, not a mirrored phone screen.
 
 ## How it connects
 
@@ -20,7 +20,7 @@ The app is a client of *your* server, exactly like the browser is. It never reac
 
 ```mermaid
 flowchart TD
-    phone["<b>Phone app</b><br/><small>+ Android Auto</small>"]
+    phone["<b>Phone app</b><br/><small>+ Android Auto / CarPlay</small>"]
     webapp["<b>app.hearthshelf.com</b><br/><small>sign in once</small>"]
     hs["<b>Your HearthShelf server</b>"]
     abs["<b>ABS</b><br/><small>stays internal</small>"]
@@ -39,16 +39,16 @@ After sign-in the phone talks **directly** to your HearthShelf server for librar
 
 | | Status |
 | --- | --- |
-| **Android** | First. Sideload today; Play Store internal-testing track coming. Android Auto supported. |
-| **iOS** | Planned later milestone (same React Native codebase; CarPlay to follow). |
+| **Android** | Public beta via [Play internal testing](https://play.google.com/apps/internaltest/4701644118536911529). Android Auto supported. |
+| **iOS** | Public beta via [TestFlight](https://testflight.apple.com/join/ehxv65Ms). Same React Native codebase; CarPlay supported. |
 
 ## What you need
 
 - A HearthShelf server that is **reachable over HTTPS** (hs.direct or your own domain — a bare LAN IP won't work for the hosted sign-in flow).
 - That server **linked to your `app.hearthshelf.com` account** — see [Linking & Invites](/webapp/pairing).
-- An Android device (or Android Auto head unit / the desktop head unit for testing).
+- An Android or iOS device (plus an Android Auto or CarPlay head unit if you want the car experience).
 
-Then follow [Install (Android)](/mobile/install).
+Then follow [Install](/mobile/install).
 
 ## Legal / disclaimer
 
