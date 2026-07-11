@@ -38,7 +38,7 @@ Yes. There are native **Android** and **iOS** apps, both in public beta, with in
 
 ## Does HearthShelf work offline?
 
-**On the mobile apps, yes.** Download a book on your phone and you can play it with no connection at all — the app launches straight into an offline mode when it can't reach your server, and any progress you make offline syncs back automatically once you're online again. This works in the car too.
+**On the mobile apps, yes.** Download a book on your phone and you can play it with no connection at all — the app launches straight into an offline mode when it can't reach your server, and any progress you make offline syncs back automatically once you're online again. This works in the car too. You can download books by hand or set rules to download automatically, with a storage cap and auto-cleanup — see [Downloads & offline](/mobile/overview#downloads-offline) for every option.
 
 **On the web app, no.** The browser client fetches everything from your server in real time; there's no offline/PWA mode. For offline listening, use the [mobile app](/mobile/overview) (or a native AudiobookShelf app).
 
