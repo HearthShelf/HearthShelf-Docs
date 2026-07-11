@@ -38,7 +38,9 @@ Yes. There are native **Android** and **iOS** apps, both in public beta, with in
 
 ## Does HearthShelf work offline?
 
-No. The HearthShelf web and mobile apps fetch all data from your ABS server in real time. Offline/PWA mode is not in scope. For offline listening, use a native AudiobookShelf app.
+**On the mobile apps, yes.** Download a book on your phone and you can play it with no connection at all — the app launches straight into an offline mode when it can't reach your server, and any progress you make offline syncs back automatically once you're online again. This works in the car too.
+
+**On the web app, no.** The browser client fetches everything from your server in real time; there's no offline/PWA mode. For offline listening, use the [mobile app](/mobile/overview) (or a native AudiobookShelf app).
 
 ## Why is ABS not public-facing in the recommended setup?
 

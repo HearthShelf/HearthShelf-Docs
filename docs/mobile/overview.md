@@ -12,6 +12,7 @@ The same idea as the web experience, in your pocket:
 
 - **One sign-in.** You authenticate once with the hosted WebApp (Google, via Clerk) and connect to the server you've been linked to — no server IP to type, no separate password. This is the exact flow the web app uses.
 - **Background audio.** Playback keeps going with the screen off, with lock-screen and notification controls.
+- **Offline downloads.** Download a book to the phone and listen with no connection at all. Progress you make offline syncs back to your server automatically once you're online again — see the [offline FAQ](/guide/faq#does-hearthshelf-work-offline).
 - **In the car.** Browse and play your library from your car's screen — [Android Auto](/mobile/android-auto) on Android, [CarPlay](/mobile/carplay) on iOS. Both are real native car players, not a mirrored phone screen.
 
 ## How it connects
