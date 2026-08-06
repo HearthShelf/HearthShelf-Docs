@@ -47,6 +47,7 @@ Compared to opening a single self-hosted HearthShelf directly, the WebApp gives 
 - **Sign in once** — federated identity (via Clerk) instead of one login per server.
 - **Invite by email** — admins invite people the way Plex does; the invitee clicks, signs up, and lands in the library automatically.
 - **Reachable servers behind a firewall** — your ABS can stay fully internal; only your HearthShelf gateway is exposed.
+- **[Connect an AI app](/webapp/ai-apps)** — link Claude or another MCP-capable app to your library, read-only, and ask it whether a book fits you or what to read next.
 
 The visual language is identical to the self-hosted app — same warm dark theme, same ember accent. The difference is the *shell*: a multi-server front door instead of a single-server UI.
 

@@ -43,6 +43,7 @@ const SECTIONS: (DefaultTheme.SidebarItem & { base: string })[] = [
       { text: 'Overview', link: '/webapp/overview' },
       { text: 'Architecture', link: '/webapp/architecture' },
       { text: 'Linking & Invites', link: '/webapp/pairing' },
+      { text: 'Connect an AI app', link: '/webapp/ai-apps' },
       { text: 'Hardcover', link: '/webapp/hardcover' },
     ],
   },
