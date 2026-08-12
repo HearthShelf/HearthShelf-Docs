@@ -69,22 +69,32 @@ With the `internal` network setup and no `ports:` on ABS, the [transparent rever
 
 | Variable | Required | Default | Description |
 |---|---|---|---|
-| `ABS_SERVER_URL` | Yes | — | Internal URL of your ABS server |
-| `PUBLIC_URL` | Recommended | — | Public hostname for OIDC redirect rewriting |
+| `ABS_SERVER_URL` | Yes | — | Internal URL of your ABS server. An origin only — `http://192.168.1.100:13378` — with no trailing slash and no path |
+| `PUBLIC_URL` | Recommended | — | The `https://` address people use in their browser |
+
+::: warning Set `PUBLIC_URL` when something else terminates HTTPS
+HearthShelf uses `PUBLIC_URL` to tell ABS that the browser is on HTTPS. If HTTPS ends at Cloudflare, a reverse proxy, or a tunnel, the container itself is reached over plain HTTP — and without `PUBLIC_URL`, ABS assumes `http://` for the addresses it builds, including the OpenID callback it hands your identity provider. A strict provider will reject that.
+:::
+
+### Pointing at an ABS that uses HTTPS
+
+If `ABS_SERVER_URL` is an `https://` address, HearthShelf sends the server name during the TLS handshake (SNI), so an ABS behind Cloudflare, Traefik, Caddy, or any shared-IP host works normally.
+
+Most setups are simpler with a direct internal address — a LAN IP or a Docker service name over plain HTTP — which also keeps traffic between the two containers off the public internet.
 
 ## What Happens at Container Start
 
-The `docker-entrypoint.sh` runs `envsubst` to inject environment variables into the nginx config template, then starts nginx:
+`docker-entrypoint.sh` injects your environment variables into the nginx config, checks the result with `nginx -t`, and then starts nginx. It also normalizes `ABS_SERVER_URL` (trailing slashes are stripped) and derives the values it needs for TLS and the forwarded scheme.
 
-```sh
-#!/bin/sh
-envsubst '${ABS_SERVER_URL} ${PUBLIC_URL}' \
-  < /etc/nginx/templates/default.conf.template \
-  > /etc/nginx/conf.d/default.conf
-exec "$@"
+This means you can change `ABS_SERVER_URL` and restart the container — no image rebuild needed.
+
+If the generated config is invalid, the container stops and prints the problem along with the `ABS_SERVER_URL` it was given, rather than restart-looping on a bare nginx error:
+
 ```
-
-This means you can update `ABS_SERVER_URL` by changing the environment variable and restarting the container — no image rebuild needed.
+[hearthshelf] ERROR: generated nginx config is invalid.
+[hearthshelf] ABS_SERVER_URL=http://192.168.1.100:13378/
+[hearthshelf] Expected an origin only, e.g. http://192.168.1.5:13378
+```
 
 ## Updating HearthShelf
 
